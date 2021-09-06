@@ -31,27 +31,19 @@ h2 {
 }
 
 p {
-	font-weight: 400;
+	font-weight: 500;
 	font-size: 18px;
 	text-shadow: 1px 1px 10px rgba(255, 255, 255, 1.0);
-	max-width: 60%;
 }
 
-img {
+b {
+	font-size:  20px;
+}
+
+#event {
 	margin-top: -12px;
 	margin-bottom: -46px;
 	max-width: 100%;
-}
-
-.emphasized {
-	font-size: 18px;
-	font-weight: 700;
-	color: rgba(2, 192, 158, 1.0);
-	background-color: rgba(2, 192, 158, 0.08);
-	padding: 3px 6px;
-	border-radius: 8px;
-	margin-left: -6px;
-	margin-right: -6px;
 }
 
 .button {
@@ -61,6 +53,15 @@ img {
 	font-size: 18px;
 	color: rgba(2, 192, 158, 1.0);
 	font-weight: 600;
+	transition: background-color 250ms, transform 250ms;
+}
+
+.button:hover {
+	background-color: rgba(2, 192, 158, 0.19);
+}
+
+.button:active {
+	transform: scale(0.98);
 }
 
 #stack {
