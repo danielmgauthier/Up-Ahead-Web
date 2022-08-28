@@ -1,8 +1,9 @@
-window.onload = chooseColor;
+window.onload = setUp;
 
 document.fonts.ready.then(() => {
      document.getElementById("stack").classList.add("loaded");
 });
+
 
 const Color = {
      pink: 'pink',
@@ -15,12 +16,35 @@ const Color = {
      purple: 'purple',
 };
 
-function chooseColor() {
+let currentColorIndex = 0;
+
+function setUp() {
+     document.getElementById("background").addEventListener('click', function handleClick(event) {
+          if (event.target.tagName !== "A") {
+               applyNextColor();
+          }
+     });
+
+     applyRandomColor()
+}
+
+function applyRandomColor() {
+     var randomIndex = Math.floor(Math.random() * 8);
+     currentColorIndex = randomIndex;
+     setColor(currentColorIndex);
+}
+
+function applyNextColor() {
+     currentColorIndex = (currentColorIndex + 1) % 8;
+     setColor(currentColorIndex);
+}
+
+function setColor(index) {
      var colors = Object.keys(Color);
      var colorLiterals = colors.map(colorMap);
-     var randomIndex = Math.floor(Math.random() * colors.length);
-     var randomColorString = colors[randomIndex];
-     var randomColorHex = colorLiterals[randomIndex];
+     
+     randomColorString = colors[index];
+     var randomColorHex = colorLiterals[index];
      document.getElementById("event").src = `assets/event_${randomColorString}.png`;
      document.getElementById("icon").src = `assets/upahead_${randomColorString}.png`;
 
@@ -52,5 +76,25 @@ function colorMap(color) {
           return "#3B60BD"
      } else if (color === 'purple') {
           return "#6D45E1"
+     }
+}
+
+function nextColor(color) {
+     if (color === 'pink') {
+          return 'orange';
+     } else if (color === 'orange') {
+          return 'yellow';
+     } else if (color === 'yellow') {
+          return 'green';
+     } else if (color === 'green') {
+          return 'aqua';
+     } else if (color === 'aqua') {
+          return 'blue'
+     } else if (color === 'blue') {
+          return 'indigo';
+     } else if (color === 'indigo') {
+          return 'purple';
+     } else if (color === 'purple') {
+          return 'pink';
      }
 }
