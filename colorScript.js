@@ -29,7 +29,6 @@ function chooseColor() {
        button.style.setProperty('--hover-background-color', `${randomColorHex}2a`);
        button.style.setProperty('--regular-background-color', `${randomColorHex}1a`);
      });
-
 }
 
 function colorMap(color) {
@@ -50,5 +49,4 @@ function colorMap(color) {
      } else if (color === 'purple') {
           return "#6D45E1"
      }
-
 }
