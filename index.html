@@ -4,34 +4,53 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Up Ahead</title>
-    <meta name="description" content="Up Ahead is a happy little countdown app."/>
+    <meta name="description" content="Up Ahead is a countdown app for people who like nice things."/>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
 
     <meta property="og:title" content="Up Ahead"/>
-    <meta property="og:description" content="A happy little countdown app."/>
+    <meta property="og:description" content="A countdown app for people who like nice things."/>
     <meta property="og:image" content="https://upaheadapp.com/assets/og.png"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="Up Ahead"/>
-    <meta name="twitter:description" content="A happy little countdown app."/>
+    <meta name="twitter:description" content="A countdown app for people who like nice things."/>
     <meta name="twitter:image" content="https://upaheadapp.com/assets/og.png"/>
+
+    <script src="colorScript.js"></script>
 </head>
 
-<body>
+<body id="background">
     <div id="stack">
-        <img id="icon" src="assets/upahead.png" alt="Binoculars icon" width=120>
+        <img id="icon" src="assets/upahead_aqua.png" alt="Binoculars icon" width=120>
         <p>Hello!<br/><br/><b>Up Ahead</b> is a countdown app for people who like nice things.</p>
-        <img id="event" src="assets/event2.png" alt="Version 1.0 launching soon" width=400>
-        <div id="long-segment"></div>
-        <div id="short-segment"></div>
-        <div id="long-segment"></div>
-        <a id="stay-tuned-button" href="https://twitter.com/theupaheadapp" class="button">Stay tuned</a>
-    </div>
-
-
-
-
-    
+        <img id="event" src="assets/event_aqua.png" alt="Version 1.0 launching soon" width=400>
+        <div id="timeline">
+            <div id="long-segment"></div>
+            <div id="short-segment"></div>
+            <div id="long-segment"></div>
+        </div>
+        <a id="stayTuned" href="https://twitter.com/theupaheadapp" class="button">Stay tuned</a>
+        <!--- <div id="timeline">
+            <div id="long-segment"></div>
+            <div id="short-segment"></div>
+            <div id="long-segment"></div>
+        </div>
+        <form id="stack"
+          action="https://formspree.io/f/xgeqvnqa"
+          method="POST"
+        >
+          <label>
+            <input type="email" name="email" placeholder="your email address" required>
+          </label>
+          <button class="button" type="submit">Get notified</button>
+        </form>
+        <div id="timeline">
+            <div id="long-segment"></div>
+            <div id="short-segment"></div>
+            <div id="long-segment"></div>
+        </div>
+        <p id="note">(I'll send you exactly one email when the app launches, and then delete your address from my records forever.)</p> -->
+    </div>    
 </body>
 
 </html>
