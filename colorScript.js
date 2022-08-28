@@ -1,5 +1,9 @@
 window.onload = chooseColor;
 
+document.fonts.ready.then(() => {
+     document.getElementById("stack").classList.add("loaded");
+});
+
 const Color = {
      pink: 'pink',
      orange: 'orange',
