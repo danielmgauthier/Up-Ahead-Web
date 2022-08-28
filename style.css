@@ -40,22 +40,6 @@ b {
 	color: rgba(0, 0, 0, 1.0);
 }
 
-input {
-	outline: none;
-	padding: 12px 24px;
-	border-radius: 24px;
-	font-size: 18px;
-	border: none;
-	font-family: 'Roboto Mono', monospace; 
-	text-align: center;
-}
-
-button {
-   border: none;
-   margin-top: 12px;
-   font-family: 'Roboto Mono', monospace; 
-}
-
 #event {
 	margin-top: -12px;
 	max-width: 100%;

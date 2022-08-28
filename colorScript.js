@@ -4,7 +4,6 @@ document.fonts.ready.then(() => {
      document.getElementById("stack").classList.add("loaded");
 });
 
-
 const Color = {
      pink: 'pink',
      orange: 'orange',
@@ -48,7 +47,6 @@ function setColor(index) {
      document.getElementById("event").src = `assets/event_${randomColorString}.png`;
      document.getElementById("icon").src = `assets/upahead_${randomColorString}.png`;
 
-
      document.getElementById("background").style.backgroundColor = `${randomColorHex}1a`;
      document.getElementById("stayTuned").style.color = `${randomColorHex}`;
 
@@ -76,25 +74,5 @@ function colorMap(color) {
           return "#3B60BD"
      } else if (color === 'purple') {
           return "#6D45E1"
-     }
-}
-
-function nextColor(color) {
-     if (color === 'pink') {
-          return 'orange';
-     } else if (color === 'orange') {
-          return 'yellow';
-     } else if (color === 'yellow') {
-          return 'green';
-     } else if (color === 'green') {
-          return 'aqua';
-     } else if (color === 'aqua') {
-          return 'blue'
-     } else if (color === 'blue') {
-          return 'indigo';
-     } else if (color === 'indigo') {
-          return 'purple';
-     } else if (color === 'purple') {
-          return 'pink';
      }
 }
