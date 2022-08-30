@@ -34,7 +34,7 @@ p {
 	color: rgba(0, 0, 0, 0.85);
 }
 
-#stackText {
+.stackText {
 	width: 420px;
 	max-width: 90%;
 	font-family: 'Roboto Mono', monospace; 
@@ -63,7 +63,7 @@ b {
 	color: rgba(2, 192, 158, 1.0);
 	font-weight: 700;
 	transition: background-color 250ms, transform 250ms;
-	margin-bottom: 16px;
+	font-family: 'Roboto Mono', monospace; 
 }
 
 .button:hover {
@@ -132,4 +132,8 @@ b {
 
 h2 {
 	padding-top: 16px;
+}
+
+#stayTuned {
+	margin-bottom: 16px;
 }

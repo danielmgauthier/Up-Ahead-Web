@@ -49,6 +49,7 @@ function setColor(index) {
 
      document.getElementById("background").style.backgroundColor = `${randomColorHex}1a`;
      document.getElementById("stayTuned").style.color = `${randomColorHex}`;
+     // document.getElementById("getNotified").style.color = `${randomColorHex}`;
 
      const buttons = document.querySelectorAll('.button');
      buttons.forEach((button) => {
