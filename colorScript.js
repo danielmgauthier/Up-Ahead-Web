@@ -50,10 +50,17 @@ function setColor(index) {
      document.getElementById("background").style.backgroundColor = `${randomColorHex}1a`;
      document.getElementById("stayTuned").style.color = `${randomColorHex}`;
      document.getElementById("bottomButton").style.color = `${randomColorHex}`;
+     document.getElementById("presskitButton").style.color = `${randomColorHex}`;
      // document.getElementById("getNotified").style.color = `${randomColorHex}`;
 
      const buttons = document.querySelectorAll('.button');
      buttons.forEach((button) => {
+       button.style.setProperty('--hover-background-color', `${randomColorHex}2a`);
+       button.style.setProperty('--regular-background-color', `${randomColorHex}1a`);
+     });
+
+     const menuButtons = document.querySelectorAll('.menubutton');
+     menuButtons.forEach((button) => {
        button.style.setProperty('--hover-background-color', `${randomColorHex}2a`);
        button.style.setProperty('--regular-background-color', `${randomColorHex}1a`);
      });
