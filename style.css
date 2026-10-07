@@ -186,6 +186,7 @@ h1 {
     line-height: 1.7;
 }
 
+.letter h1,
 .letter h2 {
     font-size: 32px;
     font-weight: 700;

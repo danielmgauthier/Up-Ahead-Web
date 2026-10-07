@@ -10,7 +10,8 @@ let colorIndex = Math.floor(Math.random() * colors.length);
 function applyColor() {
     const [name, hex] = colors[colorIndex];
     document.documentElement.style.setProperty("--hero", hex);
-    document.getElementById("binoculars").src = `assets/upahead_${name}.png`;
+    const binoculars = document.getElementById("binoculars");
+    if (binoculars) binoculars.src = `assets/upahead_${name}.png`;
 }
 
 // The background: the same scatter as assets/patterns/everything.svg, made here so it can be
