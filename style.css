@@ -191,6 +191,7 @@ h1 {
     font-weight: 700;
     line-height: 1.15;
     margin-bottom: 20px;
+    text-wrap: balance; /* two even lines rather than one full line and a dangling word */
 }
 
 .letter h3 {
