@@ -1,46 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Up Ahead | A Countdown App for iOS</title>
-    <meta name="description" content="Up Ahead is a countdown app for people who like nice things."/>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Up Ahead | A countdown app for people who like nice things</title>
+    <meta name="description" content="Up Ahead is a countdown app for iPhone, iPad and Apple Watch. Count down to anything, with widgets, reminders, Siri, and patterns you unlock along the way.">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="preconnect" href="https://fonts.gstatic.com/"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;700&display=block" rel="stylesheet">
+    <link rel="apple-touch-icon" href="assets/appicon.png">
+    <link rel="preload" href="assets/fonts/azeret-mono-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/azeret-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 
-    <meta property="og:title" content="Up Ahead"/>
-    <meta property="og:description" content="A countdown app for people who like nice things."/>
-    <meta property="og:image" content="https://upaheadapp.com/assets/og.png"/>
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:title" content="Up Ahead"/>
-    <meta name="twitter:description" content="A countdown app for people who like nice things."/>
-    <meta name="twitter:image" content="https://upaheadapp.com/assets/og.png"/>
-
-    <script src="colorScript.js"></script>
+    <meta property="og:title" content="Up Ahead">
+    <meta property="og:description" content="A countdown app for people who like nice things.">
+    <meta property="og:image" content="https://upaheadapp.com/assets/og.png">
+    <meta property="og:url" content="https://upaheadapp.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="apple-itunes-app" content="app-id=1583147528">
+    <script src="site.js" defer></script>
 </head>
 
-<body id="background">
-    <a id="presskitButton" href="https://upaheadapp.com/assets/presskit.zip" class="menubutton">Press Kit</a>
-    <div id="stack">
-        <img id="icon" src="assets/upahead_aqua.png" alt="Binoculars icon" width=120>
-        <p class="stackText">Hello!<br/><br/><b>Up Ahead</b> is a countdown app for people who like nice things.</p>
-        <img id="event" src="assets/event_aqua.png" alt="Version 1.0 launching soon" width=400>
-        <div id="timeline">
-            <div id="long-segment"></div>
-            <div id="short-segment"></div>
-            <div id="long-segment"></div>
-        </div>
-        <a id="stayTuned" href="https://apps.apple.com/app/up-ahead-countdown-widgets/id1583147528" class="button">Download now</a>
-        <div id="timeline">
-            <div id="long-segment"></div>
-            <div id="short-segment"></div>
-            <div id="long-segment"></div>
-        </div>
-        <a id="bottomButton" href="https://twitter.com/theupaheadapp" class="button">Stay tuned</a>
-    </div>    
-</body>
+<body>
+    <header class="hero">
+        <img class="binoculars" id="binoculars" src="assets/upahead_aqua.png" width="160" height="160" alt="">
+        <h1>Up Ahead</h1>
+        <p class="tagline">A countdown app for people who like nice things.</p>
+        <a class="button" href="https://apps.apple.com/app/up-ahead-countdown-widgets/id1583147528"><span class="button-shadow"></span><span class="button-edge"></span><span class="button-front">Download</span></a>
 
+        <!-- Three screenshots, framed with Framous. Side by side on a wide screen; a row to swipe
+             through on a phone. -->
+        <div class="phones">
+            <img src="assets/screens/patterns.png" width="1200" height="2454" alt="The pattern gallery: patterns unlocked by making events">
+            <img src="assets/screens/widgets.png" width="1200" height="2454" alt="Home screen widgets: a grid of the month ahead, countdowns to a camping trip and a movie, and a list of what is coming up">
+            <img src="assets/screens/timeline.png" width="1200" height="2454" alt="The timeline: events in order, each a coloured card with a countdown">
+            <img src="assets/screens/create.png" width="1200" height="2454" alt="Making an event: a name, a date, an icon and a colour">
+            <img src="assets/screens/settings.png" width="1200" height="2454" alt="Settings: the pattern gallery, themes, app icons and tweaks">
+        </div>
+    </header>
+
+    <main>
+        <!-- A letter, set like a clean markdown file. -->
+        <article class="letter">
+            <h2>And now, I try to sell my app to you</h2>
+            <p>This is the spot on the website where I’m supposed to start overwhelming you with punchy text and splashy images and a long list of incredible features. I actually did try to build something like this initially, but it looked <b>annoying</b> and <b>bad</b>, and the experience of both building it and reading it was so boring that <b>I almost died</b>.</p>
+            <p>So then I thought: “What’s less boring than splashy images and a long list of incredible features?” And because I am very good at product AND sales, I decided that the answer to that was “A lot of plain text”. I didn’t really think too hard beyond that, as is probably quite evident in what you’ve read so far. But I am making some of the words bold to keep you <b>engaged</b>.</p>
+            <p>Now, time to close this sale.</p>
+            <p>Oh man, imagine if I suddenly transitioned here into doing the AI thing where every sentence is its own paragraph, and inanimate nouns are always doing things, and towards the end I’d be like “The result? <b>An app that genuinely transforms your relationship with time</b>”.</p>
+            <p>And honestly?</p>
+            <p>It would be a good bit. But this is no time for jokes! It is time to sell.</p>
+            <p>Anyway, I’m surprised you’re here. I’m not even sure why I need this website. How did you find it? But listen: <b>Up Ahead is a good app</b>. In fact, it’s one of the very best apps out there. Actually — hold on — we’re getting word now that Up Ahead has been ranked #1 Best App That Has Been Made So Far. Most apps are bad, and in fact, if you really pushed me on it, I would probably encourage you to <b>throw your phone into a lake</b> and <b>never use this or any other app</b>. But since you won’t do that, you may as well try this app, which serves no purpose other than to happily remind you of the things you are looking forward to. It is colourful, it has unlockable patterns, it was made with a great deal of care by me, and it won’t really annoy you with upsells or anything like that because <b>I am not very good</b> at converting my time into money with this thing.</p>
+            <p>Speaking of which, I should warn you: there are paid features, and you can subscribe to unlock these features. I do the subscription thing because Smart App Men tell me this is roughly the only viable way for an app like this to make any money on the App Store. Sometimes, when I put on my glasses and review my app sales, I find myself doubting these Men, but I know in my heart that <b>they have Run The Numbers and would not mislead me</b>.</p>
+            <p>There’s a lifetime option too if you hate subs.</p>
+
+            <p><b>See you in the Up Aheadiverse,</b></p>
+            <p>[Remember to put handwritten signature here so it looks like a “Letter from the CEO”]</p>
+        </article>
+    </main>
+
+    <footer>
+        <img class="footer-icon" src="assets/appicon.png" width="64" height="64" alt="">
+        <nav>
+            <a href="mailto:danielgauthier.dev@gmail.com">Support</a>
+            <a href="assets/presskit.zip">Press kit</a>
+            <a href="https://bsky.app/profile/upahead.bsky.social" rel="me">Bluesky</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms</a>
+        </nav>
+        <p>Made by <a href="https://bsky.app/profile/danielmgauthier.bsky.social">Daniel Gauthier</a>.</p>
+    </footer>
+</body>
 </html>

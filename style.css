@@ -1,166 +1,256 @@
-html { 
-	font-family: sans-serif;
-	height: 100%;
+/* upaheadapp.com. The same type and shapes as a shared event page: Nunito (rounded) for the
+   things the app sets in SF Rounded, Nunito Sans for everything else, event colours with the
+   app's patterns drawn over them, and one small shadow for everything that sits on the page. */
+
+@font-face { font-family: "Nunito"; font-weight: 700; font-display: swap; src: url("assets/fonts/nunito-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Nunito Sans"; font-weight: 500; font-display: swap; src: url("assets/fonts/nunito-sans-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Nunito Sans"; font-weight: 700; font-display: swap; src: url("assets/fonts/nunito-sans-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Azeret Mono"; font-weight: 500; font-display: swap; src: url("assets/fonts/azeret-mono-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Azeret Mono"; font-weight: 700; font-display: swap; src: url("assets/fonts/azeret-mono-latin-700-normal.woff2") format("woff2"); }
+
+:root {
+    /* The top of the page takes a random event colour on each visit (site.js). */
+    --hero: #02C09E;
+    --page: color-mix(in srgb, var(--hero) 10%, white);
+    --ink: color-mix(in srgb, var(--hero) 22%, black);
+    --quiet: color-mix(in srgb, var(--hero) 55%, black);
+    --shadow: 0 4px 4px rgb(0 0 0 / 0.25);
+    --rounded: "Nunito", ui-rounded, system-ui, sans-serif;
+    /* The page's own voice is monospaced, as the app's titles are. The phones keep the app's
+       faces, since they show the app. */
+    --mono: "Azeret Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
-* {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	text-decoration: none;
-	box-sizing: border-box;
-}
+* { box-sizing: border-box; margin: 0; }
 
+html { color-scheme: light; overflow-x: clip; }
+
+/* Continuous corners where the browser can draw them. */
+.button, .button-shadow, .button-edge, .button-front { corner-shape: squircle; }
+
+/* Behind everything, every shape from every pattern, scattered sparsely and drawn very light in
+   the page's own ink. The tile repeats. */
 body {
-  	-webkit-font-smoothing: antialiased;
-  	text-align: center;
-	display: flex;
-	justify-content: center;
+    background: var(--page);
+    color: var(--ink);
+    position: relative;
+    transition: background-color 0.3s;
+    font-family: var(--mono);
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
 }
 
-#background {
-	background-color: rgba(230, 249, 245, 1.0);
-	height: 100%;
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    /* The tile from the file until the page makes its own (site.js), then that one. */
+    background: var(--scatter, url(assets/patterns/everything.svg)) center / 900px auto repeat;
+    opacity: 0.06;
+    pointer-events: none;
 }
 
-#privacyBackground {
-	height: auto;
+a { color: inherit; }
+
+/* The top: binoculars, name, tagline, the button, and the phone, in a column. */
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: max(56px, env(safe-area-inset-top) + 40px) 20px 0;
+    display: grid;
+    justify-items: center;
+    text-align: center;
 }
 
-p {
-	font-weight: 500;
-	font-size: 20px;
-	text-shadow: 1px 1px 10px rgba(255, 255, 255, 1.0);
-	color: rgba(0, 0, 0, 0.85);
+.binoculars {
+    display: block;
+    margin: -30px 0 -14px;
+    filter: drop-shadow(var(--shadow));
 }
 
-.stackText {
-	width: 420px;
-	max-width: 90%;
-	font-family: 'Roboto Mono', monospace; 
+h1 {
+    font-size: clamp(48px, 9vw, 80px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
 }
 
-#note {
-	font-size:  14px;
-	margin-bottom: 32px;
+.tagline {
+    max-width: 26ch;
+    margin-top: 16px;
+    font-size: clamp(18px, 2.6vw, 24px);
+    font-weight: 700;
+    line-height: 1.25;
+    text-wrap: balance;
 }
 
-b {
-	font-weight: 700;
-	color: rgba(0, 0, 0, 1.0);
-}
-
-#event {
-	margin-top: -12px;
-	max-width: 100%;
-}
-
-.menubutton {
-	background-color:  var(--regular-background-color);
-	padding: 8px 16px;
-	border-radius: 16px;
-	font-size: 14px;
-	color: rgba(2, 192, 158, 1.0);
-	font-weight: 700;
-	transition: background-color 250ms, transform 250ms;
-	font-family: 'Roboto Mono', monospace; 
-}
-
-.menubutton:hover {
-	background-color: var(--hover-background-color);
-}
-
-.menubutton:active {
-	transform: scale(0.98);
-}
+/* The button, as on a shared event page: three layers, a shadow, an edge that stays put, and a
+   face in the page's colour that rises a little under the pointer and presses down under the
+   finger. */
 
 .button {
-	background-color:  var(--regular-background-color);
-	padding: 12px 24px;
-	border-radius: 24px;
-	font-size: 18px;
-	color: rgba(2, 192, 158, 1.0);
-	font-weight: 700;
-	transition: background-color 250ms, transform 250ms;
-	font-family: 'Roboto Mono', monospace; 
+    position: relative;
+    display: inline-block;
+    margin-top: 32px;
+    border-radius: 22px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    outline-offset: 4px;
+    transition: filter 250ms;
 }
 
-.button:hover {
-	background-color: var(--hover-background-color);
+.button-shadow,
+.button-edge {
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
 }
 
-.button:active {
-	transform: scale(0.98);
+.button-shadow {
+    background: rgb(0 0 0 / 0.25);
+    filter: blur(4px);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
-@keyframes fade {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
+.button-edge {
+    background: color-mix(in srgb, var(--hero) 68%, black);
 }
 
-#stack {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: auto;
-	margin-bottom: auto;
-	max-width: 100%;
-	opacity: 0;
+.button-front {
+    display: block;
+    position: relative;
+    padding: 15px 40px;
+    border-radius: 22px;
+    background: var(--hero);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
-#presskitButton {
-	position:absolute;
-	top: 12px;
-	right: 12px;
-	/*margin-top: 16px;*/
-	/*margin-right:  16px;*/
+@media (hover: hover) {
+    .button:hover { filter: brightness(104%); }
+    .button:hover .button-front { transform: translateY(-6px); transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5); }
+    .button:hover .button-shadow { transform: translateY(4px); transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5); }
 }
+
+.button:active .button-front { transform: translateY(-2px); transition: transform 34ms; }
+.button:active .button-shadow { transform: translateY(1px); transition: transform 34ms; }
+
+.button:focus:not(:focus-visible) { outline: none; }
+.button:focus-visible { outline: 3px solid var(--ink); }
+
+/* The screenshots: five in a row, centred, each a fixed size that eases down a little on smaller
+   screens. The row runs the full width of the window and whatever doesn't fit is cut off at the
+   edges; it doesn't scroll. */
+
+.phones {
+    /* As wide as the window, pulled left from the hero's edge to the window's: the hero is centred,
+       so half its width minus half the window's is the distance. Overflow is clipped by the page. */
+    width: 100vw;
+    justify-self: start;
+    margin: 72px 0 0 calc(50% - 50vw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    overflow: hidden;
+    padding-bottom: 24px;
+}
+
+.phones img {
+    flex: none;
+    /* Foodnoms' sizes, measured: 336px from 1500px wide down to 220px, about 22.7% of the window between. */
+    width: clamp(220px, 22.7vw, 336px);
+    height: auto;
+    filter: drop-shadow(var(--shadow));
+}
+
+/* The letter, set like a clean markdown file. */
+
+.letter {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.letter h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.letter h3 {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 36px 0 12px;
+}
+
+.letter p { margin-bottom: 26px; text-wrap: pretty; }
+.letter ul { margin: 0 0 26px 24px; padding: 0; }
+.letter li { margin-bottom: 6px; }
+.letter strong { font-weight: 700; }
+.letter a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--hero); text-decoration-thickness: 2px; }
+
+/* The foot of the page. */
+
+footer {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 40px 20px 56px;
+    display: grid;
+    justify-items: center;
+    gap: 20px;
+    text-align: center;
+    color: var(--quiet);
+    font-size: 15px;
+}
+
+.footer-icon {
+    border-radius: 14px;
+    filter: drop-shadow(var(--shadow));
+}
+
+footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 24px;
+    font-weight: 700;
+}
+
+footer a { color: var(--ink); text-decoration: none; }
+footer nav a { text-underline-offset: 3px; }
+footer nav a:hover { text-decoration: underline; }
+footer p a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* The privacy policy page. */
+
+#privacyBackground { background: var(--page); }
 
 #textblock {
-	display: flex;
-	flex-direction: column;
-	max-width: 88%;
-	text-align: left;
-	margin-top: 64px;
-	margin-bottom: 64px;
-	line-height: 1.5;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 56px 20px 80px;
+    line-height: 1.5;
+    font-size: 17px;
 }
 
-#stack.loaded {
-	animation: fade 0.3s;
-	animation-fill-mode: forwards;
-	animation-timing-function: ease-in;
-}
-
-#long-segment {
-	width: 6px;
-	height:  17px;
-	background-color: rgba(0, 0, 0, 0.07);
-	border-radius: 3px;
-}
-
-#short-segment {
-	width: 6px;
-	height:  12px;
-	background-color: rgba(0, 0, 0, 0.07);
-	margin-bottom: 6px;
-	margin-top:  6px;
-	border-radius: 3px;	
-}
-
-#timeline {
-	margin-bottom: 12px;
-	margin-top:  12px;
-}
-
-h2 {
-	padding-top: 16px;
-}
-
-#bottomButton {
-	margin-bottom: 16px;
-}
+#textblock h1 { font-size: 40px; line-height: 1.1; }
+#textblock h2 { font-size: 24px; margin: 0; }
+#textblock p { text-wrap: pretty; }
+#textblock a { text-decoration: underline; text-underline-offset: 3px; }
