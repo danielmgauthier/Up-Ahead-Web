@@ -11,7 +11,7 @@
     <style>
         html, body { width: 1200px; height: 630px; overflow: hidden; }
         body::before { display: none; }
-        .scatter { position: absolute; inset: 0; z-index: -1; opacity: 0.08; }
+        .scatter { position: absolute; inset: 0; z-index: -1; opacity: 0.07; }
         .hero { padding: 0; height: 630px; align-content: center; gap: 0; }
         .binoculars { width: 430px; height: 430px; margin: -60px 0 -70px; }
         h1 { font-size: 128px; }
@@ -41,9 +41,10 @@
                 const y = margin + random() * (H - 2 * margin);
                 if (placed.some((p) => Math.hypot(p.x - x, p.y - y) < minimumDistance)) continue;
                 placed.push({ x, y });
+                // The line grows with the shape, at the page's ratio (2.5px on a 35px shape).
                 const scale = drawn / 200;
                 const tilt = (random() * 2 - 1) * 0.15 * (180 / Math.PI);
-                marks.push(`<path transform="translate(${(x - drawn / 2).toFixed(1)} ${(y - drawn / 2).toFixed(1)}) scale(${scale.toFixed(3)}) rotate(${tilt.toFixed(1)})" stroke-width="${(2.5 / scale).toFixed(2)}" d="${names[placed.length % names.length]}"/>`);
+                marks.push(`<path transform="translate(${(x - drawn / 2).toFixed(1)} ${(y - drawn / 2).toFixed(1)}) scale(${scale.toFixed(3)}) rotate(${tilt.toFixed(1)})" stroke-width="${(0.07 * 200).toFixed(1)}" d="${names[placed.length % names.length]}"/>`);
             }
             document.querySelector(".scatter").innerHTML = `<g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round">${marks.join("")}</g>`;
         });
