@@ -25,6 +25,12 @@
 
 html { color-scheme: light; overflow-x: clip; }
 
+/* For people who have asked their system for less motion, every transition ends at once: the
+   colour change, the button's bounce and the phones' fade all just happen. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
 /* Continuous corners where the browser can draw them. */
 .button, .button-shadow, .button-edge, .button-front { corner-shape: squircle; }
 

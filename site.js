@@ -10,6 +10,9 @@ let colorIndex = Math.floor(Math.random() * colors.length);
 function applyColor() {
     const [name, hex] = colors[colorIndex];
     document.documentElement.style.setProperty("--hero", hex);
+    // Safari tints its toolbar with this; the page's background is the colour at a tenth over white.
+    const tint = [1, 3, 5].map((i) => Math.round(255 + (parseInt(hex.substr(i, 2), 16) - 255) * 0.1));
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", `rgb(${tint.join(" ")})`);
     const binoculars = document.getElementById("binoculars");
     if (binoculars) binoculars.src = `assets/upahead_${name}.png`;
 }
