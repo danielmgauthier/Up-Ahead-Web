@@ -45,6 +45,14 @@ function scatter() {
 applyColor();
 fetch("assets/shapes.json").then((response) => response.json()).then((paths) => { shapes = paths; });
 
+// Show the phones once every screenshot has decoded, so they appear together. A screenshot that
+// fails to load still counts as done, so the row never stays hidden.
+const phones = document.querySelector(".phones");
+if (phones) {
+    const images = [...phones.querySelectorAll("img")];
+    Promise.all(images.map((image) => image.decode().catch(() => {}))).then(() => phones.classList.add("ready"));
+}
+
 document.addEventListener("click", (event) => {
     // Links, buttons and text are for their own purposes; anywhere else is empty space.
     if (event.target.closest("a, button, p, h1, h2, h3, li")) return;

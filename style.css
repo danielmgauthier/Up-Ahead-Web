@@ -168,6 +168,11 @@ h1 {
     padding-bottom: 24px;
 }
 
+/* The phones appear together: hidden until every screenshot has decoded (site.js), then a short
+   fade, rather than popping in one by one as they arrive. Without JS they simply show. */
+.js .phones { opacity: 0; transition: opacity 300ms ease-out; }
+.js .phones.ready { opacity: 1; }
+
 .phones img {
     flex: none;
     /* Foodnoms' sizes, measured: 336px from 1500px wide down to 220px, about 22.7% of the window between. */
